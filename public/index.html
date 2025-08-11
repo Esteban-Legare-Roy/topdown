@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top-Down Shooter Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        
+        #gameContainer {
+            border: 2px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .gameInfo {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .controls {
+            color: #ccc;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="gameInfo">
+        <h1>Top-Down Shooter</h1>
+        <p>LAN Co-op Multiplayer Game</p>
+    </div>
+    
+    <div id="gameContainer"></div>
+    
+    <div class="controls">
+        <h3>Controls:</h3>
+        <p><strong>Movement:</strong> WASD | <strong>Aim:</strong> Mouse | <strong>Fire:</strong> Left Click | <strong>Dodge:</strong> Space</p>
+        <p><strong>Weapons:</strong> 1-Pistol | 2-Shotgun | 3-Rifle</p>
+    </div>
+
+    <!-- Load Phaser.js -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>
+    
+    <!-- Load Socket.IO -->
+    <script src="/socket.io/socket.io.js"></script>
+    
+    <!-- Load the game -->
+    <script type="module" src="/game.js"></script>
+</body>
+</html>
