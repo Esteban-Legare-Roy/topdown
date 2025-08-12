@@ -9,45 +9,24 @@
             margin: 0;
             padding: 0;
             background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            overflow: hidden;
+            color: white;
             font-family: Arial, sans-serif;
         }
-        
-        #gameContainer {
-            border: 2px solid #333;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .gameInfo {
-            color: white;
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .controls {
-            color: #ccc;
-            font-size: 14px;
-            text-align: center;
-            margin-top: 20px;
+            z-index: 1000;
         }
     </style>
 </head>
 <body>
-    <div class="gameInfo">
-        <h1>Top-Down Shooter</h1>
-        <p>LAN Co-op Multiplayer Game</p>
-    </div>
-    
-    <div id="gameContainer"></div>
-    
-    <div class="controls">
-        <h3>Controls:</h3>
-        <p><strong>Movement:</strong> WASD | <strong>Aim:</strong> Mouse | <strong>Fire:</strong> Left Click | <strong>Dodge:</strong> Space</p>
-        <p><strong>Weapons:</strong> 1-Pistol | 2-Shotgun | 3-Rifle</p>
+    <div id="loading">
+        <h1>Loading Game...</h1>
+        <p>Please wait while the game loads...</p>
     </div>
 
     <!-- Load Phaser.js -->
@@ -57,6 +36,19 @@
     <script src="/socket.io/socket.io.js"></script>
     
     <!-- Load the game -->
-    <script type="module" src="/game.js"></script>
+    <script src="/game.js"></script>
+    
+    <script>
+        // Simple test to make sure the page is working
+        console.log('HTML loaded');
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded');
+            // Hide loading message after a delay
+            setTimeout(() => {
+                const loading = document.getElementById('loading');
+                if (loading) loading.style.display = 'none';
+            }, 3000);
+        });
+    </script>
 </body>
 </html>
